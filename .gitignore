@@ -1,0 +1,5 @@
+/lambroll/app/target/
+/terraform/*.tfstate
+/terraform/*.tfstate.*
+/terraform/*.zip
+

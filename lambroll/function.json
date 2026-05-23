@@ -1,0 +1,11 @@
+{
+  "FunctionName": "quarkus-hello-world",
+  "Runtime": "java21",
+  "Handler": "io.quarkus.amazon.lambda.runtime.QuarkusStreamHandler::handleRequest",
+  "Role": "arn:aws:iam::{{ must_env `AWS_ACCOUNT_ID` }}:role/quarkus-hello-world-role",
+  "MemorySize": 512,
+  "Timeout": 30,
+  "Environment": {
+    "Variables": {}
+  }
+}
