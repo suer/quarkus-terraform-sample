@@ -54,6 +54,27 @@ curl $(cd terraform && terraform output -raw api_endpoint)/hello
 # => Hello from Quarkus Lambda!
 ```
 
+## ローカル開発
+
+Quarkus の dev モードを使うと、Lambda にデプロイせずローカルで動作確認できる。
+
+```bash
+cd lambroll/app
+mvn quarkus:dev
+```
+
+起動後に `http://localhost:8080` でアクセスできる。
+
+ファイルを変更すると次のリクエスト時に自動で反映される（再起動不要）。
+
+| 変更したファイル | 反映タイミング |
+|----------------|--------------|
+| Java ファイル | 次のリクエスト時に自動再コンパイル |
+| Qute テンプレート（`.html`） | 次のリクエスト時に即反映 |
+| CSS などの静的ファイル | 次のリクエスト時に即反映 |
+
+`http://localhost:8080/q/dev` では有効な拡張機能や設定を確認できる Dev UI が開く。
+
 ## Makefile ターゲット
 
 | ターゲット | 内容 |
