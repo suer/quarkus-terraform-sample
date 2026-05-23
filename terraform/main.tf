@@ -37,11 +37,12 @@ resource "aws_lambda_function" "this" {
   role          = aws_iam_role.lambda.arn
 
   filename = data.archive_file.placeholder.output_path
-  runtime  = "java21"
+  runtime  = "provided.al2023"
   handler  = "io.quarkus.amazon.lambda.runtime.QuarkusStreamHandler::handleRequest"
 
-  memory_size = 512
-  timeout     = 30
+  architectures = ["arm64"]
+  memory_size   = 512
+  timeout       = 30
 
   lifecycle {
     ignore_changes = [filename, source_code_hash]

@@ -4,7 +4,7 @@ APP_DIR    := app
 ZIP        := $(APP_DIR)/target/function.zip
 
 build:
-	cd $(APP_DIR) && mvn package -DskipTests
+	cd $(APP_DIR) && mvn package -DskipTests -Dnative -Dquarkus.native.container-build=true
 
 deploy: build
 	lambroll deploy --src=$(ZIP)
