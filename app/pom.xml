@@ -33,10 +33,6 @@
   <dependencies>
     <dependency>
       <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-amazon-lambda-http</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>io.quarkus</groupId>
       <artifactId>quarkus-rest</artifactId>
     </dependency>
     <dependency>
@@ -94,6 +90,15 @@
   </build>
 
   <profiles>
+    <profile>
+      <id>lambda</id>
+      <dependencies>
+        <dependency>
+          <groupId>io.quarkus</groupId>
+          <artifactId>quarkus-amazon-lambda-http</artifactId>
+        </dependency>
+      </dependencies>
+    </profile>
     <profile>
       <id>native</id>
       <activation>

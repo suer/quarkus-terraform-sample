@@ -1,0 +1,12 @@
+FROM amazonlinux:2023
+WORKDIR /work/
+RUN dnf install -y shadow-utils \
+    && useradd -M -s /sbin/nologin appuser \
+    && chown appuser /work/ \
+    && dnf remove -y shadow-utils \
+    && dnf clean all
+COPY --chown=appuser target/*-runner /work/application
+RUN chmod +x /work/application
+EXPOSE 8080
+USER appuser
+CMD ["./application", "-Dquarkus.http.host=0.0.0.0"]

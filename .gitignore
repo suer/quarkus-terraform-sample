@@ -1,4 +1,4 @@
-/lambroll/app/target/
+/app/target/
 /terraform/*.tfstate
 /terraform/*.tfstate.*
 /terraform/*.zip
